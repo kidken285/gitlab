@@ -4,12 +4,20 @@ import verifyGitLab from "./lib/verify.js";
 import publishGitLab from "./lib/publish.js";
 import successGitLab from "./lib/success.js";
 import failGitLab from "./lib/fail.js";
+import prepareGitLab from "./lib/prepare.js";
+
 
 let verified;
+let prepared;
 
 export async function verifyConditions(pluginConfig, context) {
   await verifyGitLab(pluginConfig, context);
   verified = true;
+}
+
+export async function prepare(pluginConfig, context) {
+  await prepareGitLab(pluginConfig, context);
+  prepared = true;
 }
 
 export async function publish(pluginConfig, context) {
