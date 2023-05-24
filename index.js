@@ -16,7 +16,9 @@ export async function verifyConditions(pluginConfig, context) {
 }
 
 export async function prepare(pluginConfig, context) {
-  await prepareGitLab(pluginConfig, context);
+  if (!prepared) {
+    await prepareGitLab(pluginConfig, context);
+  } 
   prepared = true;
 }
 
